@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Find Lat and Long</title>
+</head>
+<body>
+<h1>Find Your Home's Latitude and Longitude</h1>
+<br/>
+<br/>
+<form th:action="@{/latlong}" th:object="${address}" method="post" >
+    <table id="input_table">
+        <tr>
+            <td>
+                <label for="input-address">StreetAddress:</label>
+                <input id="input-address" name="address" placeholder="Text" th:field="${address.street}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="input-city">City:</label>
+                <input id="input-city" name="city" placeholder="Text" th:field="${address.city}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="input-state">State:</label>
+				<input id="input-state" name="city" placeholder="Text" th:field="${address.state}" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="input-zipcode">Zip Code:</label>
+                <input id="input-zipcode" name="zipcode" placeholder="00000-0000" th:field="${address.zipcode}"
+                       type="text"/>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td><input type="button" onclick="location.href='/';" value="Cancel"/></td>
+            <td><input type="reset" value="Reset"/></td>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
